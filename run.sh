@@ -6,7 +6,7 @@ installpath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #здесь
 datafiles=${installpath}/data			#исходные данные в csv файлах
 logpath=${installpath}/log				# для логов
-imgdata=${installpath}/img-data			# папка с картинками
+imgdata=${installpath}/img-data		# папка с картинками
 sshlog=${logpath}/ssh.log
 
 #там
@@ -39,12 +39,12 @@ rsync -crth --progress --partial --force ${imgdata} ${wwwhost}:${wwwroot}/
 echo `date +%F\ %H:%M:%S` "	== Хостинг: импорт на сайт"
 echo `date +%F\ %H:%M:%S` ": ssh начали" > ${sshlog}
 ssh ${wwwhost} << EOF >> ${sshlog}
-php ${hosting}/core/components/minishop2/import/csv-custom.php "assets/81-виды.csv" "pagetitle,longtitle,description,parent,template,class_key,published" 1 "longtitle" 0 ";"
-php ${hosting}/core/components/minishop2/import/csv-custom.php "assets/82-модели.csv" "pagetitle,longtitle,description,introtext,parent,template,class_key,published" 1 "longtitle" 0 ";"
-php ${hosting}/core/components/minishop2/import/csv-custom.php "assets/83-товары.csv" "pagetitle,longtitle,description,introtext,article,price,tema,tags,tkan,size,razmer,parent,template,class_key,published,new,popular" 1 "article" 0 ";"
-php ${hosting}/core/components/minishop2/import/csv-custom.php "assets/картинки.csv" "pagetitle,article,source,gallery" 1 "article" 0 ";"
-php ${hosting}/core/components/minishop2/import/linkimport.php "assets/84-наборы.csv" "name,type,class_key,description" 1 "name" 0 ";"
-php ${hosting}/core/components/minishop2/import/productlinkimport.php "assets/85-товары-в-наборы.csv" "link,goods" 1 "link" 0 ";"
+php ${hostroot}/core/components/minishop2/import/csv-custom.php "assets/types-of-goods.csv" "pagetitle,longtitle,description,parent,template,class_key,published" 1 "longtitle" 0 ";"
+php ${hostroot}/core/components/minishop2/import/csv-custom.php "assets/models-of-goods.csv" "pagetitle,longtitle,description,introtext,parent,template,class_key,published" 1 "longtitle" 0 ";"
+php ${hostroot}/core/components/minishop2/import/csv-custom.php "assets/goods.csv" "pagetitle,longtitle,description,introtext,article,price,tema,tags,tkan,size,razmer,parent,template,class_key,published,new,popular" 1 "article" 0 ";"
+php ${hostroot}/core/components/minishop2/import/csv-custom.php "assets/images.csv" "pagetitle,article,source,gallery" 1 "article" 0 ";"
+php ${hostroot}/core/components/minishop2/import/linkimport.php "assets/links.csv" "name,type,class_key,description" 1 "name" 0 ";"
+php ${hostroot}/core/components/minishop2/import/productlinkimport.php "assets/productlinks.csv" "link,goods" 1 "link" 0 ";"
 EOF
 
 echo `date +%F\ %H:%M:%S` ": ssh закончили">> ${sshlog}
