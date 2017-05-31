@@ -26,12 +26,12 @@ Structure of csv files:
 
 - links.csv
 
-    - headers: name,type,class_key,description
+    - headers: link name,link type,class_key,description
 
     - data: link1;many-to-many;msLink;Link Description
 
 - productlink.csv
 
-    - headers: link,goods
+    - headers: link id,goods by article
 
-    - data: link1;article1,article2,article3,article4
+    - data: 0;article1,article2,article3,article4
