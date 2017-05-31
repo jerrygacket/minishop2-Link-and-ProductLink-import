@@ -2,11 +2,13 @@
 
 Importing Links and ProductLinks from csv, like a product import.
 
+Links updated, if exists. ProductLinks removed, then created. ProductLinks must be updated too, but there is no need to do right now. Maybe later.
+
 Import scripts must be in dir: MODX_CORE_PATH/components/minishop2/import/
 
 Do not forget to set remoteuser and remotehost vars in run.sh.
 
-File csv-custom.php have modified gallery imort for multiple images. there are may be a comma-separated string with image names or one image.
+File csv-custom.php have modified gallery imort for multiple images. There are may be a comma-separated string with image names or singe image name.
 
                 if ($v == 'gallery') {
                         if(preg_match('/,/',$csv[$k])){
