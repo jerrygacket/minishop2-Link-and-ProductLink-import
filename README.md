@@ -1,8 +1,10 @@
 # minishop2-Link-and-ProductLink-import
 
-Import Links and ProductLinks from csv, like a product import.
+Importing Links and ProductLinks from csv, like a product import.
 
-import scripts must be in dir: MODX_CORE_PATH/components/minishop2/import/
+Import scripts must be in dir: MODX_CORE_PATH/components/minishop2/import/
+
+Do not forget to set remoteuser and remotehost vars in run.sh.
 
 File csv-custom.php have modified gallery imort for multiple images. there are may be a comma-separated string with image names or one image.
 
