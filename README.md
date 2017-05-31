@@ -21,3 +21,17 @@ File csv-custom.php have modified gallery imort for multiple images. There are m
                         $gallery[] = $csv[$k];
                         }
                 }
+
+Structure of csv files:
+
+- links.csv
+
+    - headers: name,type,class_key,description
+
+    - data: link1;many-to-many;msLink;Link Description
+
+- productlink.csv
+
+    - headers: link,goods
+
+    - data: link1;article1,article2,article3,article4
